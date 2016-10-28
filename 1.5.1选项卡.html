@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>1.5.1选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        #container ul{
+            overflow: hidden;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+            /*background: #ccc;*/
+            margin: 50px auto;
+        }
+        #container li{
+            float:  left;
+            width: 120px;
+            height: 30px;
+            margin-right: 5px;
+            background: #cccccc;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #content{
+            background: #eeeeee;
+            height: 270px;
+            border-top: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+        </ul>
+        <div id="content"></div>
+    </div>
+    <script>
+        var oContainer = document.getElementById("container");
+        var aLi = oContainer.getElementsByTagName("li");
+        var oContent = document.getElementById("content");
+
+        var data = ["aaa" , "bbb" , 'ccc'];
+        oContent.innerHTML = data[0];
+
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].index = i;
+            aLi[i].onclick = function(){
+                for(var j=0; j<aLi.length; j++) {
+                    aLi[j].className = '';
+                }
+                this.className = "selected";
+                oContent.innerHTML = data[this.index];
+            };
+
+        }
+    </script>
+</body>
+</html>
