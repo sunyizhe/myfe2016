@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #menu .main-menu h3{
+            width: 200px;
+            height: 30px;
+            background: #000;
+            color: white;
+            cursor: pointer;
+            line-height: 30px;
+        }
+        #menu li{
+            width: 200px;
+        }
+        #menu .sub-menu{
+            border: 1px solid #000000;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <h3>管理区</h3>
+        <ul class="sub-menu">
+            <li><a href="#">001</a></li>
+            <li><a href="#">002</a></li>
+            <li><a href="#">003</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <h3>交流区</h3>
+        <ul class="sub-menu">
+            <li><a href="#">001</a></li>
+            <li><a href="#">002</a></li>
+            <li><a href="#">003</a></li>
+        </ul>
+    </li>
+    <script>
+        var oMenu = document.getElementById("menu");
+        var aH3 = oMenu.getElementsByTagName("h3");
+        for(var i=0; i<aH3.length; i++){
+            aH3[i].bFlag = false;
+            aH3[i].onclick = function(){
+                var oH3 = next(this);
+                if(this.bFlag){
+                    oH3.style.display = "none";
+                }else{
+                    oH3.style.display = "block";
+                }
+                this.bFlag = ! this.bFlag
+            };
+        }
+        function next(elem){
+            do{
+                elem =  elem.nextSibling;
+            }while(elem && elem.nodeType != 1);
+            return elem;
+        }
+    </script>
+</ul>
+</body>
+</html>
