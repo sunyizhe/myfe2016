@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>1.7.2滚动条</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 200px;
+            height: 350px;
+            border: 1px solid #000000;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            width: 170px;
+            height:470px;
+            float: left;
+            position: relative;
+        }
+        #scroll-bar{
+            border-left: 1px solid #000000;
+            width: 30px;
+            height: 350px;
+            background: #eeeeee;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        #scroll-btn{
+            background: #000000;
+            width: 30px;
+            height: 40px;
+            position: absolute;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            11哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+        </div>
+        <div id="scroll-bar">
+            <span id="scroll-btn"></span>
+        </div>
+    </div>
+    <script src="jslib.js"></script>
+    <script>
+        var oBox = document.getElementById("scroll-btn");
+        var oRight = document.getElementById("scroll-bar");
+        var oContent = document.getElementById("content");
+        var oContainer = document.getElementById("container");
+        oBox.onmousedown = function(e){
+            e = e || window.event;
+            var top = e.clientY - oBox.offsetTop;
+            document.onmousemove = function(e){
+                e = e || window.event;
+                var itop = e.clientY - top;
+                if(itop < 0){
+                    itop = 0;
+                }else if(itop > oRight.offsetHeight - oBox.offsetHeight){
+                    itop = oRight.offsetHeight - oBox.offsetHeight;
+                }
+
+                oBox.style.top = itop + "px";
+//                animate(oContent,{
+//                    top: -oBox.style.top
+//                });
+                var scale = oBox.offsetTop / (oRight.offsetHeight - oBox.offsetHeight);
+                var cTop = scale*(oContent.offsetHeight - oContainer.offsetHeight);
+                oContent.style.top = -cTop + "px";
+                return false;
+            };
+        };
+        document.onmouseup = function(){
+            document.onmousemove = null;
+        };
+    </script>
+</body>
+</html>
