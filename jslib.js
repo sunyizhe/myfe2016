@@ -1,4 +1,4 @@
-/**
+/*
  * Created by Ыявдем on 2016/10/30.
  */
 function animate(elem, attr, callback){

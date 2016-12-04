@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var elem = "abaccdeff";
+    var Arr = elem.split("");
+    for(var i =0; i<Arr.length; i++){
+        var x;
+        for(var j =0; j<Arr.length; j++){
+            if(Arr[i] == Arr[j]){
+               continue;
+            }else{
+                x = Arr[i];
+                break;
+            }
+        }
+    }
+    console.log(x);
+</script>
+</body>
+</html>

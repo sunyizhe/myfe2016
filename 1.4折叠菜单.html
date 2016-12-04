@@ -23,8 +23,10 @@
             cursor: pointer;
             /*↑小手*/
         }
+        #menu li{
+            width: 200px;
+        }
         #menu .sub-menu{
-            width: 198px;
             border: 1px solid #000000;
             display: none;
         }
@@ -32,7 +34,7 @@
 </head>
 <body>
     <ul id="menu">
-        <li>
+        <li class="main-menu">
             <h3>管理区</h3>
             <ul class="sub-menu">
                 <li><a href="#">001</a></li>
@@ -40,12 +42,13 @@
                 <li><a href="#">003</a></li>
             </ul>
         </li>
-        <li>
+        <li  class="main-menu">
             <h3>交流区</h3>
             <ul class="sub-menu">
                 <li><a href="#">001</a></li>
                 <li><a href="#">002</a></li>
                 <li><a href="#">003</a></li>
+            </ul>
         </li>
     </ul>
     <script>
@@ -57,9 +60,9 @@
             aH3[i].bFlag = false;
             aH3[i].onclick = function(){
                 if(this.bFlag) {
-                    aSubMenu[this.index].style.display = "block";
-                }else{
                     aSubMenu[this.index].style.display = "none";
+                }else{
+                    aSubMenu[this.index].style.display = "block";
                 }
                 this.bFlag = !this.bFlag;
             };

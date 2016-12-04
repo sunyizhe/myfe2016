@@ -51,21 +51,23 @@
             <li><a href="#">003</a></li>
         </ul>
     </li>
-    <script>
-        var oUl = document.getElementById("menu");
-        var aLi = oUl.getElementsByTagName("li");
-        for(var i=0; i<aLi.length; i++) {
-            if (aLi[i].className == "main-menu") {
-                aLi[i].onclick = function () {
-                    //console.log("ddd");
-                    var oSubmenu = this.getElementsByTagName("ul")[0];
-                    if (oSubmenu.style.display == "block") {
-                        oSubmenu.style.display = "none";
-                    } else {
-                        oSubmenu.style.display = "block";
-                    }
-                };
-            }
-        }
-    </script>
 </ul>
+<script>
+    var oUl = document.getElementById("menu");
+    var aLi = oUl.getElementsByTagName("li");
+    for(var i=0; i<aLi.length; i++) {
+        if (aLi[i].className == "main-menu") {
+            aLi[i].onclick = function () {
+                //console.log("ddd");
+                var oSubmenu = this.getElementsByTagName("ul")[0];
+                if (oSubmenu.style.display == "block") {
+                    oSubmenu.style.display = "none";
+                } else {
+                    oSubmenu.style.display = "block";
+                }
+            };
+        }
+    }
+    </script>
+</body>
+</html>

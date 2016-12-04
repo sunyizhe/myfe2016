@@ -71,7 +71,7 @@
 
     <script>
         var oMenu = document.getElementById("menu");
-        var aLi = document.getElementsByTagName("li");
+        var aLi = oMenu.getElementsByTagName("li");
         for(var i=0; i<aLi.length; i++){
             if(aLi[i].className == "main-menu"){
                 aLi[i].onmouseover = function(){

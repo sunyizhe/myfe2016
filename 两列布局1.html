@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1{
+            width: 500px;
+            height: 300px;
+            background: #00ff00;
+
+        }
+        #div2{
+            position: absolute;
+            height: 300px;
+            background: #ff0000;
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body id="body">
+    <div id="div1"></div>
+    <div id="div2"></div>
+<script>
+    var oDiv1 = document.getElementById("div1");
+    var oDiv2 = document.getElementById("div2");
+    var oBody = document.getElementById("body");
+    var x = oBody.offsetWidth - oDiv1.offsetWidth;
+    console.log(x);
+    oDiv2.style.width = x + "px";
+</script>
+</body>
+</html>
